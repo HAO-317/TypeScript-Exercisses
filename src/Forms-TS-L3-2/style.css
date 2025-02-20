@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;}
+
+ div{
+    background-color: lightgray;
+    padding: 20px;
+    justify-content: center;
+ }   
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
