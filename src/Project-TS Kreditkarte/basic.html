@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-TS Kreditkarte</title>
+    <link rel="stylesheet" href="./style.css">
+ 
+  </head>
+  <body>
+    <main>
+        
+      <div class="output-wrappe">
+          <div class="chip-logo">
+              <img src="./assets/img/chip.png" alt="chip">
+              <img src="./assets/img/visa_logo.png" alt="visa logo">
+          </div>
+          <p class="output-num">#### #### #### ####</p>
+          <div class="name-date">
+              <div class="links">
+                  <p class="card-holder">Card Holder</p>
+                  <h class="full-name">FULL NAME</h>
+              </div>
+              <div class="rechts">
+                  <p class="expires">Expires</p>
+                  <h4 class="date">MM/YY</h4>
+              </div>
+          </div>
+      </div>
+
+      <div class="input-wrappe">
+          <form>
+              <div  class="input-num-name">
+                  <label for="input-number">Card Number</label>
+                  <input type="number" name="input-number" id="input-number" required>
+                  <label for="input-holder">Card Holder</label>
+                  <input type="text" name="input-holder" id="input-holder" required>
+              </div>
+              
+              <div class="input-Date">
+                  <div class="box1">
+                      <label class="text-rechts" for="input-date">Expiration Date</label>
+                      <input type="date"   name="input-date" id="input-date" required>                    
+                  </div>
+                  <div class="box2">
+                      <label  class="text-links" for="input-cvv">CVV</label>
+                      <input type="number" name="input-cvv" id="input-cvv" required>
+                  </div>
+              </div>
+              <input class="button" type="submit" value="Submit">
+          </form>
+      </div>
+  </main>
+
+  
+
+   <script type="module" src="./basic.ts"></script>
+
+   <br>
+   <hr>
+   <br>
+   <a href="../../index.html">Back to Homepage</a>
+
+
+  </body>
+</html>
+
+

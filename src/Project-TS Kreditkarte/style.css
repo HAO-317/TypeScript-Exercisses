@@ -1,0 +1,171 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto';
+  background-color: rgb(173, 173, 173);
+  padding:20px;
+}
+
+main {
+
+}
+
+a {
+  display: flex;
+  justify-content: center;
+}
+.output-wrappe {
+  width: 370px;
+  height: 200px;
+  background-image: url("./assets/img/card_hg.png");
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 12px 15px 12px;
+  border-radius: 10px;
+  position: relative;
+  top: 250px;
+  left: 0px;
+}
+
+img {
+  width: 35px;
+}
+
+.chip-logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.output-num {
+  font-size: 28px;
+  color: rgb(205, 172, 22);
+  text-shadow: 1px 1px 2px  #414141;
+}
+
+.name-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-date p{
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+h4{
+  font-size: 16px;
+  font-weight: normal;
+}
+.card-holder, .expires {
+  color: #414141;
+}
+
+.rechts {
+  justify-items: right;
+}
+
+.input-wrappe {
+  width: 480px;
+  height: 600px;
+  background-color: rgb(232, 237, 240);
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 5px #00000084;
+  padding: 300px 80px 50px 80px;
+}
+
+label {
+  font-size: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  height: 36px;
+  border-radius: 5px;
+  border: 1px solid #767676;
+  margin-bottom: 10px;
+}
+
+.input-Date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.box1{
+  width: 60%;
+}
+
+.box2{
+  width: 38%;
+}
+
+.text-links {
+  display: flex;
+  justify-content: right;
+}
+.text-rechts {
+  display: flex;
+
+}
+
+.button {
+  width: 50%;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(55, 145, 146);
+  color: white;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background-color: rgb(127, 171, 195);
+  box-shadow: 0 0 10px 0 #b3ff01;
+
+}
+
+.rainbow-shadow {
+    animation: rainbowShadow 2.5s linear 10 alternate forwards; /* 持续2秒，线性动画 */
+}
+
+@keyframes rainbowShadow {
+  0% {
+      box-shadow: 0 0 15px 0 rgba(255, 0, 0, 0.7); /* Red */
+  }
+  14% {
+      box-shadow: 0 0 15px 0 rgba(255, 127, 0, 0.7); /* Orange */
+  }
+  28% {
+      box-shadow: 0 0 15px 0 rgba(255, 255, 0, 0.7); /* Yellow */
+  }
+  42% {
+      box-shadow: 0 0 15px 0 rgba(0, 255, 0, 0.7); /* Green */
+  }
+  57% {
+      box-shadow: 0 0 15px 0 rgba(0, 0, 255, 0.7); /* Blue */
+  }
+  71% {
+      box-shadow: 0 0 15px 0 rgba(75, 0, 130, 0.7); /* Indigo */
+  }
+  85% {
+      box-shadow: 0 0 15px 0 rgba(238, 130, 238, 0.7); /* Violet */
+  }
+  100% {
+      box-shadow: 0 0 15px 0 rgba(255, 0, 0, 0.7); /* Red */
+  }
+}
