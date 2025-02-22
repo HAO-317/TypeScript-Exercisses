@@ -15,7 +15,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="counter" type="button"></button>
     </div>
     <p class="read-the-docs">
-      HL@BootCamps by SuperCode 2025
+      HL - BootCamps WD2025 - SuperCode
     </p>
   </div>
 `
