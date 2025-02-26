@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project-Hangman</title>
+    <link rel="stylesheet" href="./style.css">
+ 
+  </head>
+  <body>
+    <main>
+      <div class="head">
+      </div>
+  <div class="category">
+    <p>Zuerst Kategorie auswählen ▸</p>
+    <select id="category-select"></select>
+  </div>
+      
+
+      <div class="mid-box">
+        <p id="word-display">_ _ _ _ _ _ _</p>
+        <p id="timer">Time left: 60s</p>
+
+      </div>
+
+
+    <div class="box">
+    <p id="wrong-guesses">Wrong guesses: </p>
+    <p id="remaining-guesses">Remaining guesses:</p>
+    </div>
+
+
+    <p id="WinOrRestart"></p>
+
+    <div class="letter-btns"></div>
+
+    
+    <button id="restart">Start New Game</button> 
+
+    <script>
+      const buttons = document.querySelector(".letter-btns");
+      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      for (const letter of alphabet){
+        if (buttons) {buttons.innerHTML += `<button class="letter-btn"> ${letter}</button>`
+      }
+      }
+      const allLetterBtns = document.querySelectorAll(".letter-btn");
+      console.log(allLetterBtns)
+      </script>
+      
+
+      <script type="module" src="./basic.ts"></script>
+
+
+
+    </main>
+
+
+   <footer>
+    <br>
+    
+    <a href="../../index.html">Back to Homepage</a>
+
+   </footer>
+
+
+  </body>
+
+</html>
+
+
