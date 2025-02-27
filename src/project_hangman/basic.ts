@@ -1,5 +1,3 @@
-// const words: string[] = [     'APPLE', 'BANANA', 'CHAIR', 'TABLE',];
-
 const wordCategories = {
     animals: [
         'TIGER', 'ELEPHANT', 'BLUEWHALE', 'GIRAFFE', 'PENGUIN', 
@@ -42,7 +40,6 @@ const wordCategories = {
 // default first
 let selectedCategory = 'animals';
 
-
 let currentWord: string;
 let guessedLetters: Set<string> = new Set();
 const maxGuesses: number = 6;
@@ -64,6 +61,8 @@ const restartButton = document.getElementById('restart');
 const headElement = document.querySelector('.head');
 
 const categorySelect = document.getElementById('category-select');
+
+let isGameStarted = false; // neu f.if started
 
 function getRandomWord(): string {
    
@@ -110,22 +109,21 @@ function startTimer() {
 function updateTimerDisplay() {
     if (timerElement) {
         timerElement.textContent = `Time: ${timeLeft}`;
-        
-        if (timeLeft <= 10) {
+        // änderung
+        if (timerId === null) {
+            timerElement.style.color = 'white'; 
+        } else if (timeLeft <= 10) {
             timerElement.style.color = 'red';
         } else if (timeLeft <= 20) {
             timerElement.style.color = 'yellow';
         } else {
             timerElement.style.color = 'white';
         }
-        
-    } else {
-        console.error('Timer element not found in DOM');
     }
 }
 
 function endGameDueToTime() {
-    winOrRestartElement.textContent = `Time up! Das Wort ist ${currentWord}. Klick Restart to play again.`;
+    winOrRestartElement.textContent = `Time up! Das Wort ist ${currentWord}. Klick Start to play again.`;
     winOrRestartElement.classList.add('animated-text');
     disableButtons();
 }
@@ -168,7 +166,7 @@ function updateDisplay() {
 
 
 function handleGuess(letter: string) {
-    if (guessedLetters.has(letter) || wrongGuesses >= maxGuesses || timeLeft <= 0) return;
+    if (!isGameStarted || guessedLetters.has(letter) || wrongGuesses >= maxGuesses || timeLeft <= 0) return;
 
     guessedLetters.add(letter);
     
@@ -188,12 +186,12 @@ function handleGuess(letter: string) {
 
 function checkGameState() {
     if (wordDisplay.join('') === currentWord) {
-        winOrRestartElement.textContent = 'You Win! Klick Restart to play again.';
+        winOrRestartElement.textContent = 'You Win! Klick Start to play again.';
         winOrRestartElement.classList.add('animated-text');
         if (timerId) clearInterval(timerId);
         disableButtons();
     } else if (wrongGuesses >= maxGuesses) {
-        winOrRestartElement.textContent = `Game Over! The word was ${currentWord}. Klick Restart to try again.`;
+        winOrRestartElement.textContent = `Game Over! Das Wort ist ${currentWord}. Klick Start to try again.`;
         winOrRestartElement.classList.add('animated-text');
         if (timerId) clearInterval(timerId);
         disableButtons();
@@ -215,6 +213,7 @@ function resetGame() {
     
     letterButtons.forEach(button => button.disabled = false);
     
+    isGameStarted = true;
     startTimer();
     updateDisplay();  
 }
@@ -231,54 +230,39 @@ function addEventListeners() {
     // add select
     if (categorySelect) {
         categorySelect.addEventListener('change', () => {
-            selectedCategory = categorySelect.value;
-            resetGame(); 
+            selectedCategory = categorySelect.value; 
         });
     }
+    document.addEventListener('keydown', (event) => {
+        const letter = event.key.toUpperCase();
+        if (/^[A-Z]$/.test(letter)) { // nur f. alphabet
+            event.preventDefault(); // verbot
+            if (isGameStarted) {
+                handleGuess(letter);
+            }
+        }
+    });
 }
 
 function initializeGame() {
-    // if (!timerElement) {
-    //     console.error('Required timer element is missing from HTML');
-    //     return;
-    // }
-    // if (!categorySelect) {
-    //     console.error('Category select element is missing from HTML');
-    //     return;
-    // }
-    
+
     populateCategorySelect(); // select
     selectedCategory = categorySelect.value; 
     currentWord = getRandomWord();
     wordDisplay = Array(currentWord.length).fill('_');
-    startTimer();
+    
+    timeLeft = 30;
+    updateTimerDisplay();
     updateDisplay();
+
+    letterButtons.forEach(button => button.disabeled = true)
+    isGameStarted = false;
+
     addEventListeners();
 }
 
 
-// function addEventListeners() {
-//     letterButtons.forEach(button => {
-//         button.addEventListener('click', () => {
-//             handleGuess(button.textContent!.trim());
-//         });
-//     });
 
-//     restartButton.addEventListener('click', resetGame);
-// }
-
-// function initializeGame() {
-//     if (!timerElement) {
-//         console.error('Required timer element is missing from HTML');
-//         return;
-//     }
-    
-//     currentWord = getRandomWord();
-//     wordDisplay = Array(currentWord.length).fill('_');
-//     startTimer();
-//     updateDisplay();
-//     addEventListeners();
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeGame();
