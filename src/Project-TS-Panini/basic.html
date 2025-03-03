@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-TS Panini Sammlerkarten </title>
+    <link rel="stylesheet" href="./style.css">
+ 
+  </head>
+  <body>
+  <h2>Project-TS Panini Sammlerkarten</h2>
+  <hr>
+  <div class="cards-container"></div>
+
+  <form class="card-form">
+    <label for="name">艺名:</label>
+    <input type="text" id="name" required />
+  
+    <label for="age">年龄:</label>
+    <input type="number" id="age" required />
+  
+    <label for="imageUrl">图片 URL:</label>
+    <input type="text" id="imageUrl" required />
+  
+    <label for="profession">职业:</label>
+    <input type="text" id="profession" required />
+  
+    <label for="albumsSold">已售专辑数:</label>
+    <input type="number" id="albumsSold" required />
+  
+    <label for="nationality">国籍:</label>
+    <input type="text" id="nationality" required />
+  
+    <label for="debutYear">出道年份:</label>
+    <input type="number" id="debutYear" required />
+  
+    <button type="submit" id="submit">添加</button>
+  </form>
+  
+  <button id="saveAll">保存所有卡片</button>
+  <button id="loadCards">加载卡片</button>
+  
+   <script type="module" src="./basic.ts"></script>
+
+   <br>
+   <hr>
+   <a href="../../index.html">Back to Homepage</a>
+
+
+  </body>
+</html>
+
+

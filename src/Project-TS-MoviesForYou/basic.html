@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-TS Movies for you</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Project-TS Movies for you</h2>
+    <hr>
+    
+    <div class="controls">
+        <div class="searchfelder">
+            <input type="text" id="searchInput" placeholder="Suche nach Film, Jahr oder Regisseur">
+            <button type="submit" id="searchBtn">SEARCH</button>
+        </div>
+        <div class="filter">
+            <select id="genreFilter">
+                <option value="">Alle Genres</option>
+            </select>
+            <button id="yearUpBtn">YEAR UP</button>
+            <button id="yearDownBtn">YEAR DOWN</button>
+            <button id="bestRateBtn">BEST RATE</button>
+        </div>
+    </div>
+    <div class="add-movie">
+        <h2>Film hinzufügen</h2>
+        <div class="add-movie-input">
+            <input type="text" id="newTitle" placeholder="Titel">
+            <input type="number" id="newYear" placeholder="Jahr" min="1900" max="2025">
+            <input type="text" id="newDirector" placeholder="Regisseur">
+            <input type="text" id="newDuration" placeholder="Dauer (z.B. 2h 30min)">
+            <input type="text" id="newGenres" placeholder="Genres (Komma getrennt)">
+            <input type="number" id="newRating" placeholder="Bewertung" min="0" max="10" step="0.1">
+        </div>
+        <div>
+            <button id="addMovieBtn">Hinzufügen</button>
+        </div>
+    </div>
+
+    <div class="movie-list" id="movieList"></div>
+
+    <script type="module" src="./basic.ts"></script>
+
+    <br>
+    <hr>
+    <a href="../../index.html">Back to Homepage</a>
+</body>
+</html>

@@ -26,7 +26,7 @@ Object.values(ClothingColor)
     button.style.cursor = 'pointer';
             
     const colorName = Object.keys(ClothingColor)
-        .find(key => ClothingColor[key as keyof typeof ClothingColor] === hexColor);
+        .find(key => ClothingColor[key as keyof typeof ClothingColor] === hexColor); //keyof typeof ClothingColor -> "Red" | "Blue" | "Green" 
         button.textContent = colorName || '';
         button.addEventListener('click', () => {
             console.log(`Gewählte Farbe: ${colorName} (${hexColor})`);
